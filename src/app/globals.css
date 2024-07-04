@@ -4,30 +4,140 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --background-start-rgb: 241, 240, 233;
+  --background-end-rgb: 59, 138, 169;
+  --black: 0, 0, 0;
+  --wheat: 221, 200, 151;
+  --plum: 158, 78, 149;
+  --alabaster: 255, 255, 255;
+  --bondi-blue: 59, 138, 169;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb:255, 255, 255;
-    --background-end-rgb:185, 240, 157;
+    --background-start-rgb: 255, 255, 255;
+    --background-end-rgb: 59, 138, 169;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-image: url("../app/imgs/endless-constellation.svg");
+  background-size: cover;
+  background-position: center;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .text-base {
+    color: rgb(var(--black));
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    text-align: justify;
+    padding-top: 0.5rem;
+  }
+  .logo {
+    width: 250px;
+    height: 250px;
+  }
+  .tar {
+    background-color: rgba(255, 255, 255, 0.122);
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  .loading {
+    width: 100vh;
+    height: 100vh;
+    display:flex;
+    margin: auto;
+    justify-content: center;
+    justify-self: center;
+    text-align: center;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    background-color: transparent;
+  }
+  .self-building-square-spinner, .self-building-square-spinner * {
+    box-sizing: border-box;
+  }
+
+  .self-building-square-spinner {
+    max-height: 160%;
+    max-width: 160%;
+    top: calc( -10px * 2 / 3);
+  }
+
+  .self-building-square-spinner .square {
+    height: 50px;
+    width: 50px;
+    top: calc( -10px * 2 / 3);
+    margin-right: calc(10px / 3);
+    margin-top: calc(10px / 3);
+    background: rgb(var(--bondi-blue));
+    float: left;
+    opacity: 0;
+    animation: self-building-square-spinner 4.7s infinite;
+  }
+
+  .self-building-square-spinner .square:nth-child(1) {
+    animation-delay: calc(300ms * 6);
+  }
+
+  .self-building-square-spinner .square:nth-child(2) {
+    animation-delay: calc(300ms * 7);
+  }
+
+  .self-building-square-spinner .square:nth-child(3) {
+    animation-delay: calc(300ms * 8);
+  }
+
+  .self-building-square-spinner .square:nth-child(4) {
+    animation-delay: calc(300ms * 3);
+  }
+
+  .self-building-square-spinner .square:nth-child(5) {
+    animation-delay: calc(300ms * 4);
+  }
+
+  .self-building-square-spinner .square:nth-child(6) {
+    animation-delay: calc(300ms * 5);
+  }
+
+  .self-building-square-spinner .square:nth-child(7) {
+    animation-delay: calc(300ms * 0);
+  }
+
+  .self-building-square-spinner .square:nth-child(8) {
+    animation-delay: calc(300ms * 1);
+  }
+
+  .self-building-square-spinner .square:nth-child(9) {
+    animation-delay: calc(300ms * 2);
+  }
+
+  .self-building-square-spinner .clear{
+    clear: both;
+  }
+
+  @keyframes self-building-square-spinner {
+    0% {
+      opacity: 0;
+    }
+    5% {
+      opacity: 1;
+      top: 0;
+    }
+    50.9% {
+      opacity: 1;
+      top: 0;
+    }
+    55.9% {
+      opacity: 0;
+      top: inherit;
+    }
   }
 }
